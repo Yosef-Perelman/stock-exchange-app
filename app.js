@@ -5,7 +5,6 @@ const list = document.getElementById("results");
 async function handleSearch() {
   const query = searchInput.value.trim();
 
-  view.setButtonLoading(true);
   view.showLoading();
 
   try {
@@ -16,8 +15,6 @@ async function handleSearch() {
   } catch (e) {
     view.hideLoading();
     view.showError("Search failed. Please try again.");
-  } finally {
-    view.setButtonLoading(false);
   }
 }
 

@@ -33,10 +33,4 @@ const view = {
     el.textContent = message;
     el.classList.remove("hidden");
   },
-
-  setButtonLoading(isLoading) {
-    const btn = document.getElementById("searchButton");
-    btn.disabled = isLoading;
-    btn.textContent = isLoading ? "Searching..." : "Search";
-  },
 };

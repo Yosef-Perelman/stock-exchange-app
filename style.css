@@ -20,7 +20,7 @@
 body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   min-height: 100vh;
@@ -63,29 +63,6 @@ body {
 .search-input:focus {
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
-}
-
-.search-button {
-  background: var(--color-btn-bg);
-  border: none;
-  border-radius: 6px;
-  color: white;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.875rem;
-  font-weight: 500;
-  padding: 8px 16px;
-  transition: background-color 0.15s;
-  white-space: nowrap;
-}
-
-.search-button:hover:not(:disabled) {
-  background: var(--color-btn-hover);
-}
-
-.search-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
 }
 
 /* ── Loading ── */
@@ -161,7 +138,7 @@ body {
 
 .result-symbol {
   color: var(--color-accent);
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 0.875rem;
   font-weight: 600;
 }
