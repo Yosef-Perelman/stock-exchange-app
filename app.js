@@ -14,7 +14,7 @@ async function handleSearch() {
     view.renderResults(model.getResults());
   } catch (e) {
     view.hideLoading();
-    view.showError("Search failed. Please try again.");
+    view.showError("Search failed, Please try again.");
   }
 }
 
