@@ -1,9 +1,9 @@
 const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("searchInput");
+const list = document.getElementById("results");
 
 async function handleSearch() {
   const query = searchInput.value.trim();
-  if (!query) return;
 
   view.setButtonLoading(true);
   view.showLoading();
@@ -21,7 +21,24 @@ async function handleSearch() {
   }
 }
 
-searchButton.addEventListener("click", handleSearch);
-searchInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") handleSearch();
+function debounce(callback, delay) {
+  let timeoutId;
+
+  return function (...args) {
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(() => {
+      callback(...args);
+    }, delay);
+  };
+}
+
+const debouncedSearch = debounce(handleSearch, 500);
+
+searchInput.addEventListener("input", () => {
+  if (searchInput.value.trim() === "") {
+    list.innerHTML = "";
+  } else {
+    debouncedSearch();
+  }
 });
