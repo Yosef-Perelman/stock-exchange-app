@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="max-w-4xl mx-auto px-4 py-8">
+      <a href="/" class="back-link">← Back to search</a>
+
+      <p id="page-error" class="error hidden"></p>
+
+      <div id="profile-loading" class="loading">
+        <div class="spinner"></div>
+      </div>
+
+      <div id="company-profile" class="hidden">
+        <div class="company-header">
+          <img id="company-logo" class="company-logo" src="" alt="" />
+          <div class="company-info">
+            <h1 id="company-name" class="company-name"></h1>
+            <a
+              id="company-website"
+              class="company-link"
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+            ></a>
+          </div>
+          <div class="price-block">
+            <span id="company-price" class="company-price"></span>
+            <span id="company-change" class="company-change"></span>
+          </div>
+        </div>
+        <p id="company-description" class="company-description"></p>
+      </div>
+
+      <div class="chart-section">
+        <h2 class="section-title">Price History (30 days)</h2>
+        <div id="chart-loading" class="loading">
+          <div class="spinner"></div>
+        </div>
+        <div id="chart-container" class="chart-container hidden">
+          <canvas id="price-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script src="company-model.js"></script>
+    <script src="apiManager.js"></script>
+    <script src="company-view.js"></script>
+    <script src="company-app.js"></script>
+  </body>
+</html>

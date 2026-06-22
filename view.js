@@ -19,11 +19,11 @@ const view = {
       .map(
         (item) => `
         <li>
-          <a href="/company.html?symbol=${item.symbol}" class="result-link" target="_blank" rel="noopener noreferrer">
+          <a href="/company.html?symbol=${item.symbol}" class="result-link">
             <span class="result-name">${item.name}</span>
             <span class="result-symbol">${item.symbol}</span>
           </a>
-        </li>`
+        </li>`,
       )
       .join("");
   },
