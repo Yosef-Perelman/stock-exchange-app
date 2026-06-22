@@ -13,6 +13,28 @@ async function searchStocks(query) {
   return response.json();
 }
 
+async function getQuote(symbol) {
+  const url = `https://financialmodelingprep.com/stable/quote?symbol=${symbol}&apikey=${API_KEY}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) return null;
+    const data = await response.json();
+    return data[0] ?? null;
+  } catch {
+    return null;
+  }
+}
+
+async function enrichResults(results) {
+  if (USE_MOCK) return results;
+  const quotes = await Promise.all(results.map((r) => getQuote(r.symbol)));
+  return results.map((item, i) => ({
+    ...item,
+    image: `https://images.financialmodelingprep.com/symbol/${item.symbol}.png`,
+    changePercentage: quotes[i]?.changePercentage ?? null,
+  }));
+}
+
 async function getCompanyProfile(symbol) {
   if (USE_MOCK) {
     return new Promise((resolve) =>

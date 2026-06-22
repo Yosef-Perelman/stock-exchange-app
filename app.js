@@ -9,7 +9,8 @@ async function handleSearch() {
 
   try {
     const data = await searchStocks(query);
-    model.setResults(data);
+    const enriched = await enrichResults(data);
+    model.setResults(enriched);
     view.hideLoading();
     view.renderResults(model.getResults());
   } catch (e) {

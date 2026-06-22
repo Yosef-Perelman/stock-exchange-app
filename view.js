@@ -16,15 +16,24 @@ const view = {
       return;
     }
     list.innerHTML = results
-      .map(
-        (item) => `
+      .map((item) => {
+        const isPositive = item.changePercentage >= 0;
+        const changeHtml =
+          item.changePercentage !== null && item.changePercentage !== undefined
+            ? `<span class="result-change ${isPositive ? "positive" : "negative"}">${isPositive ? "+" : ""}${item.changePercentage.toFixed(2)}%</span>`
+            : "";
+        return `
         <li>
           <a href="/company.html?symbol=${item.symbol}" class="result-link">
-            <span class="result-name">${item.name}</span>
-            <span class="result-symbol">${item.symbol}</span>
+            <img src="${item.image}" alt="" class="result-logo" onerror="this.hidden=true" />
+            <div class="result-info">
+              <span class="result-name">${item.name}</span>
+              <span class="result-symbol">${item.symbol}</span>
+            </div>
+            ${changeHtml}
           </a>
-        </li>`,
-      )
+        </li>`;
+      })
       .join("");
   },
 
