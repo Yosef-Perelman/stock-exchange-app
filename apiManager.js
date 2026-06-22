@@ -32,7 +32,7 @@ async function getStockHistory(symbol) {
       setTimeout(() => resolve(MOCK_STOCK_HISTORY), 700),
     );
   }
-  const url = `https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=${symbol}&limit=30&apikey=${API_KEY}`;
+  const url = `https://financialmodelingprep.com/stable/historical-price-eod/light?symbol=${symbol}&limit=30&apikey=${API_KEY}`;
   const response = await fetch(url);
   if (!response.ok) throw new Error(`Request failed: ${response.status}`);
   return response.json();

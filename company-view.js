@@ -47,7 +47,7 @@ const companyView = {
   renderChart(history) {
     const sorted = [...history].reverse();
     const labels = sorted.map((d) => d.date);
-    const prices = sorted.map((d) => d.close);
+    const prices = sorted.map((d) => d.price);
 
     if (priceChart) {
       priceChart.destroy();
@@ -102,6 +102,12 @@ const companyView = {
         },
       },
     });
+  },
+
+  showChartUnavailable() {
+    document.getElementById("chart-loading").classList.add("hidden");
+    const el = document.getElementById("chart-unavailable");
+    el.classList.remove("hidden");
   },
 
   showError(message) {
