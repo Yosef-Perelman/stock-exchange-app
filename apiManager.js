@@ -1,5 +1,6 @@
 const USE_MOCK = true;
-const API_KEY = "8Ag9lsABg1IfKSG2Rt3kjfnRNWB4cNtE";
+// Set your key in config.js (copy config.example.js); config.js is not committed
+const API_KEY = (window.APP_CONFIG && window.APP_CONFIG.API_KEY) || "";
 
 async function searchStocks(query) {
   if (USE_MOCK) {
